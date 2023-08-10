@@ -62,8 +62,8 @@ describe("App tests", () => {
       );
     });
 
-    test('Results rendered when click on search button', async () => {
-      await userEvent.click(screen.getByRole('button', {name: "Go"}))
+    test('Not found search', async () => {
+      await userEvent.type(screen.getByRole('textbox', {name: "Github Username"}), "{enter}")
       expect(globalContainer.querySelector('.circle')).toBeInTheDocument();
       await waitFor(
         () => expect(screen.getByText('Github user not found')).toBeInTheDocument(),
