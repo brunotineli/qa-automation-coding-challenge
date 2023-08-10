@@ -47,3 +47,14 @@ Help Adam gain confidence in further development by automatically testing the mo
 - Please submit a link to your finished repository when you are ready
 
 ## Good luck and happy coding! :)
+
+## Tests
+
+- Tests scenarios and test strategy, please, visit [`testable-flows.md`](./testable-flows.md).
+- Test automation the solution, `How to run the tests`, and continuous testing: please, visit [`README.md`](./e2e-tests/README.md).
+
+## Continuous Integration with Github Actions
+
+In order to continuosly test the application, it was added a github-actions workflow the steps below were added.
+- Build: install dependencies, build, and run the unit tests
+- E2E-Tests: run the app with different browsers, and run the e2e tests with Selenium
