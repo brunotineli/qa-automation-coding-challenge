@@ -1,0 +1,27 @@
+name: QA Automation Coding Challenge workflow
+run-name: ${{ github.actor }} pushed changes
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: Build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+    
+      - name: Test the app
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test
