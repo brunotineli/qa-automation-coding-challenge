@@ -26,6 +26,7 @@ jobs:
         with:
           cmd: test
   e2e-tests:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,4 +39,4 @@ jobs:
         uses: isbang/compose-action@v1.5.1
         with:
           compose-file: "./e2e-tests/docker/docker-compose.yml"
-          up-flags: "e2e-tests --build --exit-code-from e2e-tests"
+          up-flags: "--attach e2e-tests --build --exit-code-from e2e-tests"
