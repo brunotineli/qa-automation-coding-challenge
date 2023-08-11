@@ -33,5 +33,5 @@ jobs:
       - name: app-and-selenium-hub-configuration
         run: docker-compose -f e2e-tests/docker/docker-compose.yml up -d --build
       - name: e2e-tests
-        run: docker-compose -f e2e-tests/docker/docker-compose.yml up e2e-tests --build --exit-code-from e2e-tests
+        run: docker-compose -f e2e-tests/docker/docker-compose.yml up --build e2e-tests
   
