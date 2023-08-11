@@ -25,3 +25,17 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: test
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: app-and-selenium-hub-configuration
+        uses: isbang/compose-action@v1.5.1
+        with:
+          compose-file: "./docker/docker-compose.yml"
+          up-flags: "--build"
+      - name: e2e-tests
+        uses: isbang/compose-action@v1.5.1
+        with:
+          compose-file: "./docker/docker-compose.yml"
+          up-flags: "e2e-tests --build --exit-code-from e2e-tests"
