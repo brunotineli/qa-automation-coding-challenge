@@ -31,14 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: app-and-selenium-hub-configuration
-        uses: isbang/compose-action@v1.5.1
-        with:
-          compose-file: "./e2e-tests/docker/docker-compose.yml"
-          up-flags: "--build"
+        run: docker-compose -f e2e-tests/docker/docker-compose.yml up -d --build
       - name: e2e-tests
-        uses: isbang/compose-action@v1.5.1
-        with:
-          compose-file: "./e2e-tests/docker/docker-compose.yml"
-          up-flags: "--build --exit-code-from e2e-tests"
-        env:
-          COMPOSE_PROFILES: "ci"
+        run: docker-compose -f e2e-tests/docker/docker-compose.yml up e2e-tests --build --exit-code-from e2e-tests
+  
