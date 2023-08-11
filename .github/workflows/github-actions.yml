@@ -32,10 +32,10 @@ jobs:
       - name: app-and-selenium-hub-configuration
         uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: "./docker/docker-compose.yml"
+          compose-file: "./e2e-tests/docker/docker-compose.yml"
           up-flags: "--build"
       - name: e2e-tests
         uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: "./docker/docker-compose.yml"
+          compose-file: "./e2e-tests/docker/docker-compose.yml"
           up-flags: "e2e-tests --build --exit-code-from e2e-tests"
