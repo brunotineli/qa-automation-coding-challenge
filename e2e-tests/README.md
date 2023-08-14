@@ -95,3 +95,7 @@ docker-compose -f e2e-tests/docker/docker-compose.yml up --build e2e-tests
 ├──── **pages**\ pages objects definitions  
 ├──── **resources**\ static test data  
 └──── **tests**\ automated test scripts
+
+### TODOs
+
+- Add test reports for the GitHub actions jobs
