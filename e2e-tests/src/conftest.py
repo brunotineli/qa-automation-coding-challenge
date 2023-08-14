@@ -5,8 +5,7 @@ import os
 
 APP_URL = os.environ.get('APP_URL', 'http://localhost:3000/')
 CLOUD_URL = os.environ.get('CLOUD_URL', 'http://localhost:4444')
-IMPLICIT_WAIT_TIMEOUT = 15
-WAIT_UNTIL_TIMEOUT = 15
+IMPLICIT_WAIT_TIMEOUT = os.environ.get('IMPLICIT_WAIT_TIMEOUT', 15)
 
 
 def new_driver():
