@@ -54,7 +54,7 @@ describe("App tests", () => {
       expect(globalContainer.querySelector('.circle')).toBeInTheDocument();
     });
 
-    test('Successful search', async () => {
+    test('Search with valid results', async () => {
       await userEvent.type(screen.getByRole('textbox', {name: "Github Username"}), "brunotineli{enter}")
       await waitFor(
         () => expect(screen.getByText(/Found [0-9]+ Repos/i)).toBeInTheDocument(),
